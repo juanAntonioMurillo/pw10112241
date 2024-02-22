@@ -1,0 +1,47 @@
+/* tama;o estandar de los textos en todos los navegadores es 16 px 
+16 px = 1em 
+*/
+body{
+    border: 1px solid red;
+    font-size: 16px;
+    /* margin: 4px; afecta alos 4 orteacion*/
+    /* margin: 4px 5px; Ariba/abajo Izquierda/derecha */
+    /* margin: 5px 8px 10px 4px; arriba derecha abajo izquierda */
+    margin: 0px auto;
+    max-width: 1024px;
+
+}
+header{
+    background: #d1e3ee;
+}
+header nav{
+    border-radius: 5px;
+    background: #026dc6;
+    padding: 2px  0px;
+    width: 99%;
+    margin: 0px auto;
+}
+header nav form{
+    float: right;
+    margin-top: -35px;
+    margin-right: 10px;
+}
+header nav form input{
+    border-radius: 5px;
+}
+header nav form input[type = "submit"]{
+    background:green;
+    border: 1px solid green;
+    color: white;
+}
+header nav ul li{
+    color: white;
+    /* border: 1px solid red; */
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#logo{/* id = logo */
+    margin: -150px 0px 0px 0px;
+    /* margin-top: -150px; */
+}
