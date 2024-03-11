@@ -1,0 +1,28 @@
+html{
+     /* propiedades */
+    --color-verde: #849c3c;
+    --color-negro: #353535;
+    --color-rojo: #353535;
+    --color-gris: lightgray;
+}
+body{
+    font-size: 16px;    
+    max-width: 1024px;
+    margin: 0px auto;
+}
+header ul li{
+    width: 17%;
+    display: inline-block;
+}
+header ul li:nth-child(2){
+    background: var(--color-verde);
+}
+header ul li:nth-child(3){
+    background: var(--color-negro);
+}
+header ul li:nth-child(4){
+    background: var(--color-rojo);
+}
+header ul li:nth-child(5){
+    background: var(--color-gris);
+}
