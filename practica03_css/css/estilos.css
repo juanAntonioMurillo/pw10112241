@@ -14,23 +14,28 @@ body{
     max-width: 1024px;
     margin: 0px auto;
 }
+
 header ul li{    
     display: inline-block;
-    margin-left: -10px;
-    padding: 8px 14px;
+    margin-left: -5px;
+    padding: 8px 10px;
     text-align: center;
-    width: 17%;
+    width: 17.9%;
 }
 header ul li:nth-child(2){
     background: var(--color-verde);
+    margin-left: -30px;
 }
 header ul li:nth-child(3){
+    width: 19%;
     background: var(--color-negro);
 }
 header ul li:nth-child(4){
+    width: 19%;
     background: var(--color-rojo);
 }
 header ul li:nth-child(5){
+    width: 18%;
     background: var(--color-gris);
 }
 section,footer{
@@ -61,6 +66,20 @@ section article:nth-child(4){
 section article:nth-child(5){
     background: var(--color-gris);
 }
+footer img{
+    width: 300px;
+}
+footer article{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px ;
+    vertical-align: top;
+    width: 31.1%;    
+}
+hr{
+    border-style: dashed;
+    color: var(--color-linea);
+}
 .letra-blue{
     color: var(--color-blue);
 }
@@ -75,4 +94,8 @@ section article:nth-child(5){
 }
 .tam-tarjetas{
     font-size: 1.7em;
+}
+.read-more{
+    margin-left: 220px;
+    /* border: 1px solid red; */
 }
