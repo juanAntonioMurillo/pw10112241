@@ -2,4 +2,49 @@ body{
     font-size: 16px;    
     max-width: 1024px;
     margin: 0px auto;
+    background: #efefef;
+
+}
+header{
+    text-align: center;
+    background: #235d92;
+}
+section article nav ul li{
+    display: inline-block;
+}
+section article nav ul{
+    text-align: right;
+    margin-top: -4px;
+}
+.sect01{
+    background: #efefef;
+}
+
+#sect02{
+    width: 22.1%;
+    border: 1px solid red;
+    display: inline-block;
+    vertical-align: top;
+    
+}
+#sect03{
+    width: 77%;
+    border: 1px solid red;
+    display: inline-block;
+    vertical-align: top;
+
+}
+#sect02 ul li{
+    list-style: none;
+
+}
+#sect02 ul li:before{
+    content: "</> ";
+}
+#panelw{
+    
+}
+
+.imgp{
+    width: 89%;
 }
