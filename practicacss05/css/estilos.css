@@ -1,50 +1,176 @@
-body{
-    font-size: 16px;    
+body {
+    font-size: 16px;
     max-width: 1024px;
-    margin: 0px auto;
+    margin: 0 auto;
     background: #efefef;
-
 }
-header{
+
+header {
     text-align: center;
     background: #235d92;
 }
-section article nav ul li{
+
+section article nav ul li {
     display: inline-block;
 }
-section article nav ul{
+
+section article nav ul {
     text-align: right;
     margin-top: -4px;
 }
-.sect01{
+
+.sect01 {
     background: #efefef;
 }
 
-#sect02{
+#sect02 {
     width: 22.1%;
     border: 1px solid red;
     display: inline-block;
     vertical-align: top;
-    
+    /* background: #FFFFFF; */
 }
-#sect03{
+
+#sect03 {
     width: 77%;
     border: 1px solid red;
     display: inline-block;
     vertical-align: top;
-
+    text-align: center;
+    background: #FFFFFF;
+    position: relative;
+    border-radius: 4px;
 }
-#sect02 ul li{
+
+#sect02 ul li {
     list-style: none;
-
 }
-#sect02 ul li:before{
+
+#sect02 ul li:before {
     content: "</> ";
 }
-#panelw{
-    
+
+#art01 {
+    background: rgb(32, 74, 114);
+    height: 270px;
 }
 
-.imgp{
+#art01 ul li {
+    margin-left: -30px;
+    margin-bottom: 7px;
+}
+
+#art02 {
+    background: #275d91;
+    margin-top: 20px;
+    height: 40px;
+}
+
+#art02 img {
+    margin-left: 5px;
+    height: 40px;
+}
+
+#art03 {
+    background: #FFFFFF;
+    padding-left: 10px;
+    height: 260px;
+}
+
+#art03 img {
+    margin-bottom: 13px;
+    width: 95%;
+}
+
+#art04 article {
+    display: inline-block;
+    height: 130px;
+    padding: 8px 4.5px;
+    text-align: center;
+    vertical-align: top;
+    width: 22%;
+}
+
+#art04 article:nth-child(1) {
+    background: #1ca823;
+}
+
+#art04 article:nth-child(2) {
+    background: #1c6ca9;
+}
+
+#art04 article:nth-child(3) {
+    background: #7d1ba6;
+}
+
+#art04 article:nth-child(4) {
+    background: #a51b1a;
+}
+
+#art04 img {
+    width: 80px;
+}
+
+#art05 img {
+    width: 720px;
+    height: 150px;
+}
+
+#art06 article {
+    background: #4d6caa;
+    display: inline-block;
+    padding: 8px 4.5px;
+    vertical-align: top;
+    width: 22%;
+}
+
+#art06 img {
+    width: 110px;
+    height: 100px;
+}
+
+#art06 button {
+    border: rgb(92, 191, 216);
+    background: rgb(92, 191, 216);
+    color: #FFFFFF;
+    padding: 5px;
+}
+
+#art06 button img {
+    width: 12px;
+    height: 12px;
+}
+
+.imgp {
     width: 89%;
+}
+
+.color-blanco {
+    color: #FFFFFF;
+}
+
+.color-gris {
+    color: #353535;
+}
+
+.en-medio {
+    position: relative;
+    top: -14px;
+    left: 2px;
+}
+
+.tam-pequeño {
+    font-size: 0.8em;
+}
+
+.tam-mediano {
+    font-size: 1.2em;
+}
+
+.tam-text-butt {
+    font-size: .7em;
+}
+
+.text {
+    margin-left: -620px;
 }
