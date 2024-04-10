@@ -1,0 +1,120 @@
+body {
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 1024px;
+    background: #e3dcdd;
+}
+
+header {
+    padding-top: 60px;
+    height: 155px;
+    text-align: center;
+    margin-top: -50px;
+}
+
+hr {
+    border: 1px solid #ad8381;
+}
+
+#sect1 nav ul {
+    text-align: center;
+    margin-top: -1px;
+}
+
+#sect1 nav ul li {
+    display: inline-block;
+    padding: 8px 15px;
+}
+
+#sect2 {
+    text-align: center;
+    width: 700px;
+    margin-left: 150px;
+    padding-top: 20px;
+}
+
+#sect3 {
+    margin-top: 35px;
+}
+
+#sect3 article {
+    border: 7px solid #fff;
+    display: inline-block;
+    height: 230px;
+    padding: 10px;
+    vertical-align: top;
+    width: 440px;
+    text-align: center;
+}
+
+#sect3 article:nth-child(1) {
+    background-color: #512c27;
+    margin-left: 5px;
+}
+
+#sect3 article:nth-child(2) {
+    background: #d4c8d4;
+    margin-left: 50px;
+}
+
+#sect4 article {
+    display: inline-block;
+}
+
+#sect4 article:nth-child(1) {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#sect4 article:nth-child(2) {
+    margin-left: 100px;
+    margin-top: 5px;
+}
+
+.izquierda {
+    position: relative;
+    top: -20px;
+    right: -52px;
+}
+
+.derecha {
+    position: relative;
+    top: -20px;
+    right: -53px;
+}
+
+.letra-mediana {
+    font-size: 3em;
+}
+
+.letra-intmedia {
+    font-size: 1.5em;
+}
+
+.letra-text {
+    font-size: 1.3em;
+}
+
+.letra-titulo {
+    font-size: 4.5em;
+}
+
+.nito {
+    font-weight: bold;
+}
+
+.color-blanco {
+    color: #fff;
+}
+
+.color-cafe {
+    color: #584848;
+}
+
+.color-rojo {
+    color: red;
+}
+
+.texto-subrayado {
+    border-bottom: 3px solid #fff;
+}
