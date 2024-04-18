@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local And Session Storage</title>
+</head>
+<body>
+    <h2>local And Session Storage</h2>
+
+    <div id="Demo">0</div>
+    <button onclick="Aumentar();">Contador</button>
+    <button onclick="Restar();">Restar</button>
+    <button onclick="Reiniciar();">Reinica</button>
+    <button onclick="Eliminar();">Eliminar Contador</button>
+
+    <script>
+        var imprimir = function(dato){
+            document.getElementById('Demo').innerHTML = dato
+        }
+        var Aumentar = function(){
+            localStorage.cuenta++;
+            imprimir(localStorage.cuenta);            
+        }
+        var Reiniciar = function(){
+            localStorage.cuenta = 0;
+            imprimir(localStorage.cuenta);            
+
+        }
+        var Eliminar = function(){
+            localStorage.removeItem('cuenta');
+            imprimir(localStorage.cuenta);            
+        }
+        var Restar = function(){
+            localStorage.cuenta--;
+            imprimir(localStorage.cuenta); 
+        }
+        // comprobar si podemos usar localstorages/sessionStorage
+        if(typeof(Storage) != "undefined"){
+            if(localStorage.cuenta){ // aqui es si existe
+                imprimir(localStorage.cuenta);
+            }else{
+                localStorage.cuenta = 0;
+            }
+        }
+    </script>
+</body>
+</html>
