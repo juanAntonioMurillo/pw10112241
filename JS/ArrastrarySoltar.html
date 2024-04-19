@@ -17,13 +17,27 @@
 </head>
 <body>
     <h2>Arrastrar y Soltar</h2>
-    <div id="Div1" ondragover="allowDrop(event)" ondrop="drop(Event)">
-        <img id="img1" src="/img/screen-0.jpg" alt="screen-0"  width="88" draggable="true" ondragstart="drag(event)">
-        <img id="img2" src="/img/screen-0.jpg" alt="screen-0"  width="88" draggable="true" ondragstart="drag(event)">
-        <img id="img3" src="/img/screen-0.jpg" alt="screen-0"   width="88" draggable="true" ondragstart="drag(event)">
-        <img id="img4" src="/img/screen-0.jpg" alt="screen-0"  width="88" draggable="true" ondragstart="drag(event)">
+    <div id="Div1" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <img id="img1" src="/JS/img/screen-0.jpg" alt="screen-0"  width="88" draggable="true" ondragstart="drag(event)">
+        <img id="img2" src="/JS/img/screen-0.jpg" alt="screen-0"  width="88" draggable="true" ondragstart="drag(event)">
+        <img id="img3" src="/JS/img/screen-0.jpg" alt="screen-0"   width="88" draggable="true" ondragstart="drag(event)">
+        <img id="img4" src="/JS/img/screen-0.jpg" alt="screen-0"  width="88" draggable="true" ondragstart="drag(event)">
 
     </div>
-    <div id="Div2" ondragover="allowDrop(event)" ondrop="drop(Event)"></div>
+    <div id="Div2" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+    <script>
+        function drop(ev){
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("texto");
+            ev.target.appendChild(document.getElementById(data));
+        }
+        function allowDrop(ev){
+            //premitimos que el objeto caiga sobre el
+            ev.preventDefault();
+        }
+        function drag(ev){
+            ev.dataTransfer.setData("texto",ev.target.id);
+        }
+    </script>
 </body>
 </html>
