@@ -1,4 +1,4 @@
-let express = require( 'express');
+let express = require('express');
 let mysql = require('mysql');
 let cors = require('cors');
 
@@ -16,33 +16,79 @@ let conexion = mysql.createConnection({
 });
 
 //Nos conectamos a Mysql
-conexion.connect(function(error){
-    if(error){
+conexion.connect(function (error) {
+    if (error) {
         throw error;
-    }else{
+    } else {
         console.log("conecto ala ase de datos");
     }
 });
 
 //Rutas De Acceso
-app.get("/",function(req,res){
+app.get("/", function (req, res) {
     res.send("Ruta De Inicio");
-})
- //seleccionamos todo los clientes
-app.get("/api/clientes",(req,res)=>{
-    conexion.query('select * from clietes', (error,regristos)=>{
-        if(error){
+});
+
+//seleccionamos un cliente en especifico
+app.get("/api/clientes/:id", (req, res) => {
+    conexion.query('select * from clietes where id = ?', [req.params.id], (error, regristos) => {
+        if (error) {
             throw error;
-        }else{
+        } else {
+            res.send(regristos);
+        }
+    });
+});
+
+//seleccionamos todo los clientes
+app.get("/api/clientes", (req, res) => {
+    conexion.query('select * from clietes', (error, regristos) => {
+        if (error) {
+            throw error;
+        } else {
             res.send(regristos);
         }
 
     });
 });
 
+//borrar
+app.delete('/api/clientes/:id', (req, res) => {
+    let id = req.params.id;
+    conexion.query('DELETE FROM clietes WHERE id = ?', [id], (error, regristos) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(regristos);
+        }
+    });
+});
+
+//insertar un nuevo cliente
+app.post('/api/clientes',(req,res)=>{
+    let data= {
+        id: req.body.id,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        direccion: req.body.direccion,
+        telefono: req.body.telefono,
+        rfc: req.body.rfc,
+        curp: req.body.curp,
+        cp: req.body.cp
+    }
+    let sql = "INSERT INTO clietes SET ?";
+    conexion.query(sql,data,(error,regristos)=>{
+        if (error) {
+            throw error;
+        } else {
+            res.send(regristos);
+        }
+    });
+});
+
 
 //Encender Servidor
 let puerto = 3000;
-app.listen(puerto, function(){
+app.listen(puerto, function () {
     console.log('Servidor escuchando puerto ' + puerto);
 })
