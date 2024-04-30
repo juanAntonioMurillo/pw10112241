@@ -1,0 +1,12 @@
+cd /Applications/XAMPP/xamppfiles/bin
+./mysql -h localhost -u root -p 
+
+use pwdata
+describe clietes
+
+insert into clietes values(2,'JUAn','PEREZ','conocida','55555','RFCJUANPEREZ','CURPJUANPEREZ','80000');
+
+
+node --watch app.js 
+
+command + l  link chorme
