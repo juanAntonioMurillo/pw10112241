@@ -10,3 +10,21 @@ insert into clietes values(2,'JUAn','PEREZ','conocida','55555','RFCJUANPEREZ','C
 node --watch app.js 
 
 command + l  link chorme
+
+
+FORMATO JSON
+
+
+post
+raw
+json
+{
+    "id": 3,
+    "nombre": "LUPTA",
+    "apellido": "HERNANDES",
+    "direccion": "conocida",
+    "telefono": "6666666",
+    "rfc": "LPHERNANDES",
+    "curp": "LPHERNANDESZHLS",
+    "cp": "8111"
+}
