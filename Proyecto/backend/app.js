@@ -65,8 +65,8 @@ app.delete('/api/clientes/:id', (req, res) => {
 });
 
 //insertar un nuevo cliente
-app.post('/api/clientes',(req,res)=>{
-    let data= {
+app.post('/api/clientes', (req, res) => {
+    let data = {
         id: req.body.id,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
@@ -77,7 +77,29 @@ app.post('/api/clientes',(req,res)=>{
         cp: req.body.cp
     }
     let sql = "INSERT INTO clietes SET ?";
-    conexion.query(sql,data,(error,regristos)=>{
+    conexion.query(sql, data, (error, regristos) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(regristos);
+        }
+    });
+});
+
+//Actualizar
+app.put('/api/clientes/:id', (req, res) => {
+    let id = req.params.id;
+    let nombre = req.body.nombre;
+    let apellido = req.body.apellido;
+    let direccion = req.body.direccion;
+    let telefono = req.body.telefono;
+    let rfc = req.body.rfc;
+    let curp = req.body.curp;
+    let cp = req.body.cp;
+
+    let sql = "UPDATE clietes set nombre = ?,apellido = ?,direccion = ?,telefono = ?,rfc = ?,curp = ?,cp = ? WHERE id = ?"
+
+    conexion.query(sql, [nombre, apellido, direccion, telefono, rfc, curp, cp, id], (error, regristos) => {
         if (error) {
             throw error;
         } else {
