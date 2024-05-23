@@ -16,6 +16,7 @@
             <RouterLink class="navbar-brand" to="/clientes">Clientes</RouterLink>
             <RouterLink class="navbar-brand" to="/proveedores">Proveedores</RouterLink>
             <RouterLink class="navbar-brand" to="/ventas">Ventas</RouterLink>
+            <Routerlink class="navbar-brand" to="/clientes/registro"></Routerlink>
           </li>
 
         </ul>
