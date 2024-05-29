@@ -8,6 +8,14 @@ import ClientesEditarView from '@/views/ClientesEditarView.vue';
 import RegistroView from '@/views/RegistroView.vue'
 import EntradaView from '@/views/EntradaView.vue'
 
+import NoAutorizaView from '@/views/NoAutorizaView.vue'
+
+import { getAuth } from "firebase/auth";
+
+
+
+
+
 // import RegistroView from '../views/RegistroView.vue';
 //  import RegistroView from '@/views/RegistroView.vue';
 
@@ -34,7 +42,10 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ClientesView.vue')
+      component: () => import('../views/ClientesView.vue'),
+      meta:{
+        requireAuth:true,
+      }
     },
     {
       path: '/proveedores',
@@ -88,7 +99,32 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: EntradaView
     }
+    ,
+    {
+      path: '/clientes/noautorizar',
+      name: 'noautorizar',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: NoAutorizaView
+    }
   ]
+})
+
+//analizamos todas las rutas antes de que se ejecute
+router.beforeEach((to,from,next)=>{
+  //si alguna ruta tiene meta.requiereAuth
+  if(to.matched.some((record) => record.meta.requireAuth)){
+    //si existe un usario registrado
+    if(getAuth().currentUser){
+      next();//continuar sin problema
+    }else{
+      // alert("Acceso no autorizado")
+      next("/clientes/noautorizar")
+    }
+  }else{
+    next();
+  }
 })
 
 export default router
