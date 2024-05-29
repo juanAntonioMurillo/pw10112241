@@ -28,3 +28,18 @@ json
     "curp": "LPHERNANDESZHLS",
     "cp": "8111"
 }
+
+
+
+
+npm create vue@latest
+tienda
+solo yes a run
+
+
+npm install axios
+
+npm install vee-validate zod @vee-validate/zod --save
+npm install firebase --save
+
+npm install --save-dev @iconify/vue
