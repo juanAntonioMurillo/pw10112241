@@ -64,7 +64,7 @@ import { Field,Form,ErrorMessage } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import * as zod from 'zod';
 export default {
-    name: "ClientesCreate",
+    name: "ClientesEditar",
     components: { Field,Form,ErrorMessage },
     data(){
         const phoneRegex = new RegExp(
@@ -74,8 +74,9 @@ export default {
             /^([a-z]{3,4})(\d{2})(\d{2})(\d{2})([0-9a-z]{3})$/i
         );
         const curpRegex = new RegExp(
-            /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9][12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/g
+            /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|BC|BS|CC|CH|CL|CM|CS|DF|DG|GR|GT|HG|JC|MC|MN|MS|NE|NL|NT|OC|PL|QR|QT|SL|SP|SR|TC|TL|TS|VZ|YN|ZS|BCS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d]\d)$/g
         );
+
         const cpRegex = new RegExp(
             /^[0-9]{5}$/
         );
@@ -91,7 +92,7 @@ export default {
                 telefono: zod.string().regex(phoneRegex,'numero no valido').min(10,{message: 'Minimo 10'}),
                 rfc: zod.string().regex(rfcRegex,'RFC No Valido'),
                 curp: zod.string().regex(curpRegex,'Curp No Valido'),
-                cp: zod.string().regex(cpRegex,'RFC No Valido'),
+                cp: zod.string().regex(cpRegex,'Código postal no válido'),
             })
         )
         return{
@@ -127,6 +128,7 @@ export default {
             this.guardarCliente();
         },
         guardarCliente(){
+            console.log(this.model.cliente);
             axios.put('http://localhost:3000/api/clientes/'+this.$route.params.id,this.model.cliente)
             .then(res => {
                 //si insertamos 1 registro

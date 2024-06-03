@@ -10,7 +10,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <RouterLink class="navbar-brand" to="/clientes">Clientes</RouterLink>
-            <RouterLink class="navbar-brand" to="/proveedores">Proveedores</RouterLink>
+            <RouterLink class="navbar-brand" to="/vendedores">Vendedores</RouterLink>
             <RouterLink class="navbar-brand" to="/ventas">Ventas</RouterLink>
             <RouterLink class="navbar-brand" to="/clientes/registro">Registro</RouterLink>
             <RouterLink class="navbar-brand" to="/clientes/entrada"> Entrada</RouterLink>
@@ -37,22 +37,22 @@
             auth:'',
           }
       },
-      mounted() {
-        this.auth = getAuth()
-        onAuthStateChanged(this.auth,(user)=>{
-          if(user){
-            this.validado = true
-          }else{
-            this.validado = false
-          }
-        })
-      },
-      methods: {
-        salidaSistemas(){
-          signOut(this.auth).then(()=>{
-            this.$router.push("/");
-          })
-        }
-      }, 
+      // mounted() {
+      //   this.auth = getAuth()
+      //   onAuthStateChanged(this.auth,(user)=>{
+      //     if(user){
+      //       this.validado = true
+      //     }else{
+      //       this.validado = false
+      //     }
+      //   })
+      // },
+      // methods: {
+      //   salidaSistemas(){
+      //     signOut(this.auth).then(()=>{
+      //       this.$router.push("/");
+      //     })
+      //   }
+      // }, 
     }
 </script>
