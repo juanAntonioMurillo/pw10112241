@@ -17,12 +17,9 @@ import { getAuth } from "firebase/auth";
 import vendedores from '@/views/Vendedores/vendedores.vue';
 import vendedoresCreateView from '@/views/Vendedores/vendedoresCreateView.vue';
 import vendedoresEditarView from '@/views/Vendedores/vendedoresEditarView.vue';
-import VentasView from '@/views/Ventas/VentasView.vue'
+import VentasView from '@/views/Ventas/VentasView.vue';
 
-
-
-
-
+import detalleVentaView from '@/views/DetalleVentas/detalleVentaView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,7 +27,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: detalleVentaView
     },
     {
       path: '/about',
@@ -107,6 +104,11 @@ const router = createRouter({
       component: vendedoresEditarView
     } 
     ,
+    {
+      path: '/detalleventas',
+      name: 'detalleventas',
+      component: detalleVentaView
+    } 
   ]
 })
 
