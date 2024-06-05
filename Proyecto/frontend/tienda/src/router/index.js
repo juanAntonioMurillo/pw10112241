@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ClientesView from '../views/ClientesView.vue';
 import ProveedoresView from '@/views/ProveedoresView.vue';
 
-import clientesCreateView from '@/views/clientesCreateView.vue';
+import clientesCreateView from '@/views/ClientesCreateView.vue';
 import ClientesEditarView from '@/views/ClientesEditarView.vue';
 import RegistroView from '@/views/RegistroView.vue'
 import EntradaView from '@/views/EntradaView.vue'
@@ -17,9 +17,14 @@ import { getAuth } from "firebase/auth";
 import vendedores from '@/views/Vendedores/vendedores.vue';
 import vendedoresCreateView from '@/views/Vendedores/vendedoresCreateView.vue';
 import vendedoresEditarView from '@/views/Vendedores/vendedoresEditarView.vue';
+
 import VentasView from '@/views/Ventas/VentasView.vue';
 
 import detalleVentaView from '@/views/DetalleVentas/detalleVentaView.vue';
+
+import Articulos from '@/views/Articulos/Articulos.vue';
+import ArticulosCreateView from '@/views/Articulos/ArticulosCreateView.vue';
+import ArticulosEditView from '@/views/Articulos/ArticulosEditView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,14 +34,14 @@ const router = createRouter({
       name: 'home',
       component: detalleVentaView
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   // route level code-splitting
+    //   // this generates a separate chunk (About.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () => import('../views/AboutView.vue')
+    // },
     {
       path: '/clientes',
       name: 'clientes',
@@ -55,6 +60,9 @@ const router = createRouter({
       path: '/ventas',
       name: 'ventas',
       component: VentasView,
+      meta:{
+        requireAuth:true,
+      }
     }
     ,
     {
@@ -89,7 +97,10 @@ const router = createRouter({
     {
       path: '/vendedores',
       name: 'vendedores',
-      component: vendedores
+      component: vendedores,
+      meta:{
+        requireAuth:true,
+      }
     }
     ,
     {
@@ -108,24 +119,47 @@ const router = createRouter({
       path: '/detalleventas',
       name: 'detalleventas',
       component: detalleVentaView
-    } 
+    } ,
+    {
+      path: '/articulos',
+      name: 'Articulos',
+      component: Articulos,
+      meta:{
+        requireAuth:true,
+      }
+  },
+
+  {
+      path: '/articulos/:id/edit',
+      name: 'ArticulosEditar',
+      component: ArticulosEditView
+  },
+
+  {
+      path: '/articulos/create',
+      name: 'ArticulosCreate',
+      component: ArticulosCreateView,
+      meta:{
+        requireAuth:true,
+      }
+  },
   ]
 })
 
-// //analizamos todas las rutas antes de que se ejecute
-// router.beforeEach((to,from,next)=>{
-//   //si alguna ruta tiene meta.requiereAuth
-//   if(to.matched.some((record) => record.meta.requireAuth)){
-//     //si existe un usario registrado
-//     if(getAuth().currentUser){
-//       next();//continuar sin problema
-//     }else{
-//       // alert("Acceso no autorizado")
-//       next("/clientes/noautorizar")
-//     }
-//   }else{
-//     next();
-//   }
-// })
+//analizamos todas las rutas antes de que se ejecute
+router.beforeEach((to,from,next)=>{
+  //si alguna ruta tiene meta.requiereAuth
+  if(to.matched.some((record) => record.meta.requireAuth)){
+    //si existe un usario registrado
+    if(getAuth().currentUser){
+      next();//continuar sin problema
+    }else{
+      // alert("Acceso no autorizado")
+      next("/clientes/noautorizar")
+    }
+  }else{
+    next();
+  }
+})
 
 export default router
